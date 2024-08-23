@@ -41,8 +41,14 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 
 If you find this project useful or interesting, please consider starring the repository on GitHub!
 
-[![Star this repository](https://img.shields.io/github/stars/yourusername/yourrepository.svg?style=social)](https://github.com/bsshreesha/Faculty_Login-Signup/)
+[![Star this repository](https://img.shields.io/github/stars/bsshreesha/Faculty_Login-Signup.svg?style=social)](https://github.com/bsshreesha/Faculty_Login-Signup/)
 
 ---
 
 Thank you for using this faculty login and signup page. We hope it helps streamline your user authentication process!
+
+## Output
+![image](https://github.com/user-attachments/assets/16fde70e-dd22-45bf-abf9-07d2e6331aba)
+![image](https://github.com/user-attachments/assets/17794915-ba20-44c7-8fdb-192c147f8783)
+![image](https://github.com/user-attachments/assets/f97f11fa-e1af-424a-999c-91c5e79580d1)
+
