@@ -41,7 +41,7 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 
 If you find this project useful or interesting, please consider starring the repository on GitHub!
 
-[![Star this repository](https://img.shields.io/github/stars/yourusername/yourrepository.svg?style=social)](https://github.com/yourusername/yourrepository)
+[![Star this repository](https://img.shields.io/github/stars/yourusername/yourrepository.svg?style=social)](https://github.com/bsshreesha/Faculty_Login-Signup/)
 
 ---
 
