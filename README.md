@@ -12,7 +12,7 @@ This project is a simple and responsive faculty login and signup page designed u
 
 ## Getting Started
 
-To use this project, simply clone the repository and open the `index.html` file in your browser.
+To use this project, simply clone the repository and open the `faculty.html` file in your browser.
 
 ### Prerequisites
 
