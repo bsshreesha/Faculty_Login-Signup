@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="google" value="notranslate">
+    <link rel="shortcut icon" href="favicon.png" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Faculty Application Form</title>
+    <meta name="google" value="notranslate">
+    <script src="Assets/js/jquery.min.js" type="text/javascript"></script>
+    <link href="Assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="Assets/js/bootstrap.min.js"></script>
+    <script src="Assets/js/jquery-1.11.1.min.js"></script>
+    <link href="Assets/css/style.css" rel="stylesheet">
+    <script src="Assets/js/style.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+    .form-control:focus,
+    .prefix-select:focus {
+        outline: none; /* Remove outline on focus */
+        border-color: #007bff; /* Change border color on focus */
+        box-shadow: none; /* Remove box shadow if any */
+    }
+
+    /* Additional styling for focus effect */
+    .prefix-select:focus {
+        border-right: 1px solid #007bff; /* Maintain border color on right side */
+    }
+
+    .form-control:focus {
+        border-left: 1px solid #007bff; /* Maintain border color on left side */
+    }
+
+    /* Dynamically adjust based on the selected flag */
+    .cc-select[data-selected="in"] { background-image: url('https://flagcdn.com/w20/in.png'); }
+    .cc-select[data-selected="us"] { background-image: url('https://flagcdn.com/w20/us.png'); }
+    .cc-select[data-selected="gb"] { background-image: url('https://flagcdn.com/w20/gb.png'); }
+    .cc-select[data-selected="jp"] { background-image: url('https://flagcdn.com/w20/jp.png'); }
+    .cc-select[data-selected="de"] { background-image: url('https://flagcdn.com/w20/de.png'); }
+    .cc-select[data-selected="fr"] { background-image: url('https://flagcdn.com/w20/fr.png'); }
+    .cc-select[data-selected="au"] { background-image: url('https://flagcdn.com/w20/au.png'); }
+    .cc-select[data-selected="cn"] { background-image: url('https://flagcdn.com/w20/cn.png'); }
+    .cc-select[data-selected="ru"] { background-image: url('https://flagcdn.com/w20/ru.png'); }
+    .cc-select[data-selected="br"] { background-image: url('https://flagcdn.com/w20/br.png'); }
+    .cc-select[data-selected="it"] { background-image: url('https://flagcdn.com/w20/it.png'); }
+    .cc-select[data-selected="es"] { background-image: url('https://flagcdn.com/w20/es.png'); }
+    .cc-select[data-selected="id"] { background-image: url('https://flagcdn.com/w20/id.png'); }
+    .cc-select[data-selected="ph"] { background-image: url('https://flagcdn.com/w20/ph.png'); }
+    .cc-select[data-selected="nl"] { background-image: url('https://flagcdn.com/w20/nl.png'); }
+    .cc-select[data-selected="za"] { background-image: url('https://flagcdn.com/w20/za.png'); }
+    .cc-select[data-selected="tr"] { background-image: url('https://flagcdn.com/w20/tr.png'); }
+    .cc-select[data-selected="th"] { background-image: url('https://flagcdn.com/w20/th.png'); }
+    .cc-select[data-selected="sa"] { background-image: url('https://flagcdn.com/w20/sa.png'); }
+    .cc-select[data-selected="ae"] { background-image: url('https://flagcdn.com/w20/ae.png'); }
+    .cc-select[data-selected="bd"] { background-image: url('https://flagcdn.com/w20/bd.png'); }
+    .cc-select[data-selected="lk"] { background-image: url('https://flagcdn.com/w20/lk.png'); }
+    .cc-select[data-selected="kw"] { background-image: url('https://flagcdn.com/w20/kw.png'); }
+    .cc-select[data-selected="sg"] { background-image: url('https://flagcdn.com/w20/sg.png'); }
+    .cc-select[data-selected="my"] { background-image: url('https://flagcdn.com/w20/my.png'); }
+    .cc-select[data-selected="nz"] { background-image: url('https://flagcdn.com/w20/nz.png'); }
+    .cc-select[data-selected="pk"] { background-image: url('https://flagcdn.com/w20/pk.png'); }
+    .cc-select[data-selected="eg"] { background-image: url('https://flagcdn.com/w20/eg.png'); }
+    .cc-select[data-selected="ch"] { background-image: url('https://flagcdn.com/w20/ch.png'); }
+    .cc-select[data-selected="at"] { background-image: url('https://flagcdn.com/w20/at.png'); }
+    .cc-select[data-selected="gr"] { background-image: url('https://flagcdn.com/w20/gr.png'); }
+    .cc-select[data-selected="se"] { background-image: url('https://flagcdn.com/w20/se.png'); }
+    .cc-select[data-selected="no"] { background-image: url('https://flagcdn.com/w20/no.png'); }
+    .cc-select[data-selected="fi"] { background-image: url('https://flagcdn.com/w20/fi.png'); }
+    .cc-select[data-selected="dk"] { background-image: url('https://flagcdn.com/w20/dk.png'); }
+    .cc-select[data-selected="be"] { background-image: url('https://flagcdn.com/w20/be.png'); }
+    .cc-select[data-selected="pl"] { background-image: url('https://flagcdn.com/w20/pl.png'); }
+    .cc-select[data-selected="cz"] { background-image: url('https://flagcdn.com/w20/cz.png'); }
+    .cc-select[data-selected="pt"] { background-image: url('https://flagcdn.com/w20/pt.png'); }
+    .cc-select[data-selected="mx"] { background-image: url('https://flagcdn.com/w20/mx.png'); }
+    .cc-select[data-selected="il"] { background-image: url('https://flagcdn.com/w20/il.png'); }
+    .cc-select[data-selected="qa"] { background-image: url('https://flagcdn.com/w20/qa.png'); } /* Qatar */
+    .cc-select[data-selected="om"] { background-image: url('https://flagcdn.com/w20/om.png'); } /* Oman */
+    .cc-select[data-selected="mv"] { background-image: url('https://flagcdn.com/w20/mv.png'); } /* Maldives */
+    .cc-select[data-selected="kw"] { background-image: url('https://flagcdn.com/w20/kw.png'); } /* Kuwait */
+
+
+    /* Common styling for background images */
+    .cc-select {
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: 5px center;
+        padding-left: 30px;
+    }
+
+   /* Ensure no flag appears when no option is selected */
+    .cc-select[data-selected=""] {
+        background-image: none;
+    }
+
+    .password-toggle {
+        position: absolute;
+        top: 42px;
+        right: 25px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #aaa;
+        }
+
+        .password-toggle:hover {
+            color: #007bff;
+        }
+
+    .error-text {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .error {
+        border: 1px solid red;
+    }
+
+    .error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <img src="new_header1.png" class="img-responsive">
+            <div class="col-md-12" style="background-color: #e4e4e461;">
+                <div class="row" style="background-color:#3e3636;margin-bottom:10px;">
+                    <h3 style="text-align:center;color:#eee;margin-top:10px;margin-bottom:10px;">FACULTY APPLICATION PORTAL</h3>
+                </div>
+    <div class="panel-body">
+    <form method="post" autocomplete="off" id="form">
+        <fieldset style="border: 2px solid black; padding: 30px;">
+        <div class="row">
+            <div class="col-md-4" style="display: flex;">
+                <!-- Prefix Selection -->
+                <div style="flex-grow: 0; width: 83px; position: relative;">
+                    <label for="prefix"><b>Prefix</b> <span style="color: red;">*</span></label>
+                    <select id="prefix" class="form-control prefix-select">
+                        <option value="" disabled selected>Prefix</option> <!-- Placeholder option -->
+                        <option value="Dr.">Dr.</option>
+                        <option value="Prof.">Prof.</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Miss.">Miss.</option>
+                    </select>
+                </div>
+        
+                <!-- Faculty Name Input -->
+                <div style="flex-grow: 2; position: relative; margin-left: 0px; width: 200px;">
+                    <label for="facultyName"><b>Faculty Name</b> <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="facultyName" placeholder="Faculty Name" style="text-transform: uppercase;"><br>
+                </div>
+            </div>
+        
+            <div class="col-md-4">
+                <!-- Father's Name Input -->
+                <label for="fatherName"><b>Father's Name</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="fatherName" placeholder="Father's Name" style="text-transform: uppercase;"><br>
+            </div>
+        
+            <div class="col-md-4">
+                <!-- Mother's Name Input -->
+                <label for="motherName"><b>Mother's Name</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="motherName" placeholder="Mother's Name" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4" style="display: flex;">
+                <!-- Country Code Selection (if ) -->
+                <div style="flex-grow: 2; width: 111px; position: relative;">
+                    <label for="cc"><b>Dial Code</b> <span style="color: red;">*</span></label>
+                    <select id="cc" class="form-control cc-select">
+                        <option value="" data-flag="" disabled selected>Select</option> <!-- No flag for the default option -->
+                        <option value="+91" data-flag="https://flagcdn.com/w20/in.png">🇮🇳 +91</option>
+                        <option value="+1" data-flag="https://flagcdn.com/w20/us.png">🇺🇸 +1</option>
+                        <option value="+44" data-flag="https://flagcdn.com/w20/gb.png">🇬🇧 +44</option>
+                        <option value="+81" data-flag="https://flagcdn.com/w20/jp.png">🇯🇵 +81</option>
+                        <option value="+49" data-flag="https://flagcdn.com/w20/de.png">🇩🇪 +49</option>
+                        <option value="+33" data-flag="https://flagcdn.com/w20/fr.png">🇫🇷 +33</option>
+                        <option value="+61" data-flag="https://flagcdn.com/w20/au.png">🇦🇺 +61</option>
+                        <option value="+86" data-flag="https://flagcdn.com/w20/cn.png">🇨🇳 +86</option>
+                        <option value="+7" data-flag="https://flagcdn.com/w20/ru.png">🇷🇺 +7</option>
+                        <option value="+55" data-flag="https://flagcdn.com/w20/br.png">🇧🇷 +55</option>
+                        <option value="+39" data-flag="https://flagcdn.com/w20/it.png">🇮🇹 +39</option>
+                        <option value="+34" data-flag="https://flagcdn.com/w20/es.png">🇪🇸 +34</option>
+                        <option value="+62" data-flag="https://flagcdn.com/w20/id.png">🇮🇩 +62</option>
+                        <option value="+63" data-flag="https://flagcdn.com/w20/ph.png">🇵🇭 +63</option>
+                        <option value="+31" data-flag="https://flagcdn.com/w20/nl.png">🇳🇱 +31</option>
+                        <option value="+27" data-flag="https://flagcdn.com/w20/za.png">🇿🇦 +27</option>
+                        <option value="+90" data-flag="https://flagcdn.com/w20/tr.png">🇹🇷 +90</option>
+                        <option value="+66" data-flag="https://flagcdn.com/w20/th.png">🇹🇭 +66</option>
+                        <option value="+966" data-flag="https://flagcdn.com/w20/sa.png">🇸🇦 +966</option>
+                        <option value="+971" data-flag="https://flagcdn.com/w20/ae.png">🇦🇪 +971</option>
+                        <option value="+880" data-flag="https://flagcdn.com/w20/bd.png">🇧🇩 +880</option>
+                        <option value="+94" data-flag="https://flagcdn.com/w20/lk.png">🇱🇰 +94</option>
+                        <option value="+974" data-flag="https://flagcdn.com/w20/qa.png">🇶🇦 +974</option>
+                        <option value="+968" data-flag="https://flagcdn.com/w20/om.png">🇴🇲 +968</option>
+                        <option value="+960" data-flag="https://flagcdn.com/w20/mv.png">🇲🇻 +960</option>
+                        <option value="+974" data-flag="https://flagcdn.com/w20/qa.png">🇶🇦 +974</option>
+                        <option value="+965" data-flag="https://flagcdn.com/w20/kw.png">🇰🇼 +965</option>
+                    </select>                                               
+                </div>
+        
+                <!-- Mobile Number Input -->
+                <div style="flex-grow: 3; position: relative; margin-left: 0px; width: 200px;">
+                    <label for="MobNum"><b>Mobile Number</b> <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="MobNum" placeholder="MOBILE NUMBER"><br>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Date of Birth Input -->
+                <label for="dob"><b>Date of Birth</b> <span style="color:red">*</span></label>
+                <input type="date" class="form-control" id="dob" placeholder="Date of Birth"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Gender Input -->
+                <label for="dob"><b>Gender</b> <span style="color:red">*</span></label>
+                <select class="form-control" id="gender">
+                    <option value="" disabled selected>SELECT</option> <!-- Placeholder option -->
+                    <option value="Male">MALE</option>
+                    <option value="Female">FEMALE</option>
+                </select><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Email ID Input -->
+                <label for="Email"><b>Email ID</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="Email" placeholder="EMAIL ID" autocomplete="off"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Aadhaar Number Input -->
+                <label for="aadhaar"><b>Aadhaar Number</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" maxlength="12" id="aadhaar" placeholder="AADHAAR NUMBER"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- PAN Number Input -->
+                <label for="pan"><b>PAN Number</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="pan" maxlength="10" placeholder="PAN Number" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-8">
+                <!-- Address Input -->
+                <label for="address"><b>Address</b> <span style="color:red">*</span></label>
+                <textarea id="address" class="form-control" placeholder="Address" style="text-transform: uppercase;" autocomplete="off"></textarea><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Gender Input -->
+                <label for="bGroup"><b>Blood Group</b> <span style="color:red">*</span></label>
+                <select class="form-control" id="bGroup" style="text-transform: uppercase;">
+                    <option value="">Select Blood Group</option>
+                    <option value="A+">A Positive (A+)</option>
+                    <option value="A-">A Negative (A-)</option>
+                    <option value="B+">B Positive (B+)</option>
+                    <option value="B-">B Negative (B-)</option>
+                    <option value="AB+">AB Positive (AB+)</option>
+                    <option value="AB-">AB Negative (AB-)</option>
+                    <option value="O+">O Positive (O+)</option>
+                    <option value="O-">O Negative (O-)</option>
+                </select><br>
+            </div>
+         </div>
+        </fieldset>
+     </div>
+
+     <div class="panel-body">
+        <fieldset style="border: 2px solid black; padding: 30px;">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 10th Marks Input -->
+                <label for="10M"><b>10th / SSLC Marks / Percentage</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="10M" placeholder="10th Marks / Percentage / CGPA" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- II PUC Marks Input -->
+                <label for="12M"><b>12th / II PUC Marks / Percentage</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="12M" placeholder="12th Marks / Percentage / CGPA" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- UG Degree Input -->
+                <label for="UGD"><b>UG Degree</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="UGD" placeholder="Specify UG Degree" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- UG Marks Input -->
+                <label for="UGM"><b>UG Marks / CGPA / Percentage</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="UGM" placeholder="UG Marks / Percentage / CGPA" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- PG Degree Input -->
+                <label for="PGD"><b>PG Degree</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="PGD" placeholder="Specify PG Degree" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- PG Marks Input -->
+                <label for="PGM"><b>PG Marks / CGPA / Percentage</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="PGM" placeholder="PG Marks / Percentage / CGPA" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Other Degree Input -->
+                <label for="OtD"><b>Other Degree</b></label>
+                <input type="text" class="form-control" id="OtD" placeholder="Specify PG Degree" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Other Degree Marks Input -->
+                <label for="OtM"><b>Other Degree Marks / CGPA / Percentage</b></label>
+                <input type="text" class="form-control" id="OtM" placeholder="Other Marks / Percentage / CGPA" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Certification Input -->
+                <label for="Cert"><b>Certification</b> <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="Cert" placeholder="Certifications (in number)" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- 10th Marks Card Input -->
+                <label for="10MC"><b>Upload 10th / SSLC Marks Card</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="10MC" accept=".pdf" placeholder="Upload 10th Marks Card" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- 12th Marks Card Input -->
+                <label for="12MC"><b>Upload 12th / II PUC Marks Card</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="12MC" accept=".pdf" placeholder="Upload 12th Marks Card" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- UG Marks Card Input -->
+                <label for="ugMC"><b>Upload UG Marks Card (ALL SEMESTERS)</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="ugMC" accept=".pdf" placeholder="Upload UG Marks Cards" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- PG Marks Card Input -->
+                <label for="pgMC"><b>Upload PG Marks Card (ALL SEMESTERS)</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="pgMC" accept=".pdf" placeholder="Upload PG Marks Cards" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Other Degree Card Input -->
+                <label for="OthMC"><b>Upload Other Degree Marks Card</b></label>
+                <input type="file" class="form-control" id="OthMC" accept=".pdf" placeholder="Upload Other Degree Marks Cards" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Certifications Input -->
+                <label for="CertOr"><b>Upload Certifications</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="CertOr" accept=".pdf" placeholder="Upload Certifications" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Certifications Input -->
+                <label for="photo"><b>Photograph</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="photo" accept=".jpg, .png" placeholder="Upload Photograph" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Certifications Input -->
+                <label for="sign"><b>Signature</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="sign" accept=".jpg, .png" placeholder="Upload Signature" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Certifications Input -->
+                <label for="Govt"><b>Government ID (AADHAAR AND PAN)</b> <span style="color:red">*</span></label>
+                <input type="file" class="form-control" id="Govt" accept=".pdf" placeholder="Upload Government ID" style="text-transform: uppercase;"><br>
+            </div>
+        </div>
+     </div>
+    </fieldset>
+
+    <div class="panel-body">
+        <fieldset style="border: 2px solid black; padding: 30px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Faculty Experience Input -->
+                    <label for="facExp"><b>Faculty Experience (IN YEARS)</b> <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="facExp" placeholder="Faculty Experience (IN YEARS)" style="text-transform: uppercase;"><br>
+                </div>
+
+                <div class="col-md-4" style="display: flex;">
+                    <!-- Experience Selection -->
+                    <div style="flex-grow: 0; width: 110px; position: relative;">
+                        <label for="exp"><b>Experience</b> <span style="color: red;">*</span></label>
+                        <select id="exp" class="form-control exp-select">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Y">YES</option>
+                            <option value="N">NO</option>
+                        </select>
+                    </div>
+            
+                    <!-- Previous College Code Input -->
+                    <div style="flex-grow: 1; position: relative; margin-left: 0px; width: 200px;">
+                        <label for="pcName"><b>Previous College Code</b> <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="pcName" placeholder="College Code"  style="text-transform: uppercase; background-color: white;"><br>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Designation Input -->
+                    <label for="des"><b>Designation</b> <span style="color:red">*</span></label>
+                    <select id="des" class="form-control des-select" style="text-transform: uppercase;">
+                        <option value="">Select Designation</option>
+                        <option value="Principal">Principal</option>
+                        <option value="HoD">Head of the Department</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Associate Professor">Associate Professor</option>
+                        <option value="Assistant Professor">Assistant Professor</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="Lab Assistant">Lab Assistant</option>
+                        <option value="PED">Physical Education Director</option>
+                    </select><br>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Account Number Input -->
+                    <label for="AccNo"><b>Bank Account Number</b> <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="AccNo" placeholder="Bank Account Number" style="text-transform: uppercase;"><br>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Bank Name Input -->
+                    <label for="bName"><b>Bank Name</b> <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="bName" placeholder="Bank Name" style="text-transform: uppercase;"><br>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- IFSC Code Input -->
+                    <label for="ifsc"><b>IFSC Code</b> <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="ifsc" placeholder="IFSC Code" style="text-transform: uppercase;"><br>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Bank Branch Name Input -->
+                    <label for="bbname"><b>Bank Branch Name</b> <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="bbname" placeholder="Bank Branch Name" style="text-transform: uppercase;"><br>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Department Name Input -->
+                    <label for="dept"><b>Department</b> <span style="color:red">*</span></label>
+                    <select id="dept" class="form-control dept-select" style="text-transform: uppercase;">
+                        <option value="">Select Department</option>
+                        <option value="AIML">Artificial Intelligence and Machine Learning (AIML)</option>
+                        <option value="CV">Civil Engineering (CV)</option>
+                        <option value="CHE">Chemistry (CHE)</option>
+                        <option value="CSE">Computer Science and Engineering (CSE)</option>
+                        <option value="ECE">Electronics and Communication Engineering (ECE)</option>
+                        <option value="ISE">Information Science and Engineering (ISE)</option>
+                        <option value="PHY">Physics (PHY)</option>
+                        <option value="MAT">Mathematics (MAT)</option>
+                        <option value="ME">Mechanical Engineering (ME)</option>
+                    </select><br>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Highest Qualification Input -->
+                    <label for="hQuali"><b>Highest Qualification</b> <span style="color:red">*</span></label>
+                    <select id="hQuali" class="form-control qual-select" style="text-transform: uppercase;">
+                        <option value="" selected="selected">Select</option>
+                        <option value="B.E/B.Tech">B.E / B.Tech</option>
+                        <option value="B.Arch">B.Arch</option>
+                        <option value="BSc">B.Sc</option>
+                        <option value="MBA">MBA</option>
+                        <option value="MCA">MCA</option>
+                        <option value="M.Tech">M.Tech</option>
+                        <option value="M.Arch">M.Arch</option>
+                        <option value="MSc">MSc</option>
+                        <option value="MSc.Engg">MSc. Engg</option>
+                        <option value="Ph.D">Ph.D</option>
+                        <option value="Other">Other</option>
+                    </select><br>
+            </div>
+
+            <div class="col-md-4">
+                 <!-- Nature of Appointment Input -->
+                 <label for="NatAppo"><b>Nature of Appointment</b> <span style="color:red">*</span></label>
+                 <select id="NatAppo" class="form-control NatAppo-select" style="text-transform: uppercase;">
+                    <option value="" selected="selected">Select</option>
+                    <option value="Permanent">PERMANENT</option>
+                    <option value="Temporary">TEMPORARY</option>
+                    <option value="Contract">CONTRACT</option>
+                    <option value="Guest">GUEST</option>
+                    <option value="Others">OTHERS</option>
+                 </select><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Date of Joining Input -->
+                <label for="doj"><b>Date of Joining</b> <span style="color:red">*</span></label>
+                <input type="date" class="form-control" id="doj" placeholder="Date of Joining" style="text-transform: uppercase;"><br>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Password Input with Toggle -->
+                <div class="form-group password-container">
+                    <label for="pass"><b>Password</b> <span style="color:red">*</span></label>
+                    <input type="password" class="form-control" id="pass" placeholder="PASSWORD">
+                    <i class="fas fa-eye-slash password-toggle" id="togglePassword"></i>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+<div class="row" style="margin-bottom:15px">
+    <div class="col-md-3">
+        <a href="/VTU/index.html"><button name="cancel" type="button" class="form-control btn-danger">CANCEL</button></a>
+    </div>
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-3">
+        <input name="submit" type="submit" class="form-control btn-success" value="SUBMIT" />
+    </div>
+    </div>
+</form>
+</div>
+</div>
+</div>  
+    <script>
+       document.getElementById("cc").addEventListener("change", function () {
+    const selected = this.value;
+    
+    // Default to no flag
+    let flag = '';
+    let maxLength = 10; // Default max length
+
+    // Define the flags and corresponding max lengths based on country codes
+    switch (selected) {
+        case '+91':
+            flag = 'in';
+            maxLength = 10; // India
+            break;
+        case '+1':
+            flag = 'us';
+            maxLength = 10; // USA
+            break;
+        case '+44':
+            flag = 'gb';
+            maxLength = 10; // UK (varies, but typical mobile length)
+            break;
+        case '+81':
+            flag = 'jp';
+            maxLength = 11; // Japan
+            break;
+        case '+49':
+            flag = 'de';
+            maxLength = 11; // Germany
+            break;
+        case '+33':
+            flag = 'fr';
+            maxLength = 9; // France
+            break;
+        case '+61':
+            flag = 'au';
+            maxLength = 9; // Australia
+            break;
+        case '+86':
+            flag = 'cn';
+            maxLength = 11; // China
+            break;
+        case '+7':
+            flag = 'ru';
+            maxLength = 10; // Russia
+            break;
+        case '+55':
+            flag = 'br';
+            maxLength = 11; // Brazil
+            break;
+        case '+39':
+            flag = 'it';
+            maxLength = 10; // Italy
+            break;
+        case '+34':
+            flag = 'es';
+            maxLength = 9; // Spain
+            break;
+        case '+62':
+            flag = 'id';
+            maxLength = 12; // Indonesia
+            break;
+        case '+63':
+            flag = 'ph';
+            maxLength = 10; // Philippines
+            break;
+        case '+31':
+            flag = 'nl';
+            maxLength = 9; // Netherlands
+            break;
+        case '+27':
+            flag = 'za';
+            maxLength = 9; // South Africa
+            break;
+        case '+90':
+            flag = 'tr';
+            maxLength = 10; // Turkey
+            break;
+        case '+66':
+            flag = 'th';
+            maxLength = 9; // Thailand
+            break;
+        case '+966':
+            flag = 'sa';
+            maxLength = 9; // Saudi Arabia
+            break;
+        case '+971':
+            flag = 'ae';
+            maxLength = 9; // UAE
+            break;
+        case '+880':
+            flag = 'bd';
+            maxLength = 11; // Bangladesh
+            break;
+        case '+94':
+            flag = 'lk';
+            maxLength = 10; // Sri Lanka
+            break;
+        case '+974':
+            flag = 'qa';
+            maxLength = 8; // Qatar
+            break;
+        case '+968':
+            flag = 'om';
+            maxLength = 8; // Oman
+            break;
+        case '+960':
+            flag = 'mv';
+            maxLength = 7; // Maldives
+            break;
+        case '+965':
+            flag = 'kw';
+            maxLength = 8; // Kuwait
+            break;
+        default:
+            maxLength = 10; // Default length
+    }
+
+    // Set the flag background
+    this.setAttribute("data-selected", flag);
+
+    // Set the max length of the mobile number field based on the country code
+    const mobileInput = document.getElementById("MobNum");
+    mobileInput.setAttribute("maxlength", maxLength);
+});
+    </script>    
+    <script>
+        // Toggle password visibility
+    document.getElementById("togglePassword").addEventListener("click", function () {
+        const passwordField = document.getElementById("pass");
+        const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+        passwordField.setAttribute("type", type);
+        
+        // Toggle the eye slash icon
+        this.classList.toggle("fa-eye");
+        this.classList.toggle("fa-eye-slash");
+    });
+    </script>
+    <script>
+        // Function to handle experience dropdown change
+        document.getElementById("exp").addEventListener("change", function () {
+            const pcNameInput = document.getElementById("pcName");
+            
+            if (this.value === "N") {
+                // If "NO" is selected, set the input value to "Not Applicable" and disable it
+                pcNameInput.value = "Not Applicable";
+                pcNameInput.setAttribute("readonly", true);
+            } else {
+                // If "YES" is selected, clear the input field and enable it
+                pcNameInput.value = "";
+                pcNameInput.removeAttribute("readonly");
+            }
+        });
+    </script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+    let isValid = true;
+
+    // Clear previous error messages
+    document.querySelectorAll('.error-text').forEach(error => error.remove());
+
+    // Validate each required field
+    const requiredFields = [
+        { selector: 'select[id="prefix"]', errorMessage: 'Select a prefix.' },
+        { selector: 'input[placeholder="Faculty Name"]', errorMessage: 'Faculty Name is required.' },
+        { selector: 'input[placeholder="Father\'s Name"]', errorMessage: 'Father\'s Name is required.' },
+        { selector: 'input[placeholder="Mother\'s Name"]', errorMessage: 'Mother\'s Name is required.' },
+        { selector: 'select[id="cc"]', errorMessage: 'Dial Code is required.' },
+        { selector: 'input[placeholder="MOBILE NUMBER"]', errorMessage: 'Mobile Number is required.' },
+        { selector: 'input[placeholder="Date of Birth"]', errorMessage: 'Date of Birth is required.' },
+        { selector: 'select[id="gender"]', errorMessage: 'Gender is required.' },
+        { selector: 'input[placeholder="EMAIL ID"]', errorMessage: 'Email ID is required.' },
+        { selector: 'input[placeholder="AADHAAR NUMBER"]', errorMessage: 'Aadhaar Number is required.' },
+        { selector: 'input[placeholder="PAN Number"]', errorMessage: 'PAN Number is required.' },
+        { selector: 'textarea[placeholder="Address"]', errorMessage: 'Address is required.' },
+        { selector: 'select[id="bGroup"]', errorMessage: 'Blood Group is required.' },
+        { selector: 'input[placeholder="10th Marks / Percentage / CGPA"]', errorMessage: '10th Marks are required.' },
+        { selector: 'input[placeholder="12th Marks / Percentage / CGPA"]', errorMessage: '12th Marks are required.' },
+        { selector: 'input[placeholder="Specify UG Degree"]', errorMessage: 'UG Degree is required.' },
+        { selector: 'input[placeholder="UG Marks / Percentage / CGPA"]', errorMessage: 'UG Marks are required.' },
+        { selector: 'input[placeholder="Specify PG Degree"]', errorMessage: 'PG Degree is required.' },
+        { selector: 'input[placeholder="PG Marks / Percentage / CGPA"]', errorMessage: 'PG Marks are required.' },
+        { selector: 'input[placeholder="Certifications (in number)"]', errorMessage: 'Certification is required.' },
+        { selector: 'input[placeholder="Upload 10th Marks Card"]', errorMessage: '10th Marks Card is required.' },
+        { selector: 'input[placeholder="Upload 12th Marks Card"]', errorMessage: '12th Marks Card is required.' },
+        { selector: 'input[placeholder="Upload UG Marks Cards"]', errorMessage: 'UG Marks Card is required.' },
+        { selector: 'input[placeholder="Upload PG Marks Cards"]', errorMessage: 'PG Marks Card is required.' },
+        { selector: 'input[placeholder="Upload Certifications"]', errorMessage: 'Certifications are required.' },
+        { selector: 'input[placeholder="Upload Photograph"]', errorMessage: 'Photograph is required.' },
+        { selector: 'input[placeholder="Upload Signature"]', errorMessage: 'Signature is required.' },
+        { selector: 'input[placeholder="Upload Government ID"]', errorMessage: 'Government ID is required.' },
+        { selector: 'input[placeholder="Faculty Experience (IN YEARS)"]', errorMessage: 'Faculty Experience is required.' },
+        { selector: 'input[placeholder="College Code"]', errorMessage: 'Previous College Code is required.' },
+        { selector: 'select[id="des"]', errorMessage: 'Designation is required.' },
+        { selector: 'input[placeholder="Bank Account Number"]', errorMessage: 'Bank Account Number is required.' },
+        { selector: 'input[placeholder="Bank Name"]', errorMessage: 'Bank Name is required.' },
+        { selector: 'input[placeholder="IFSC Code"]', errorMessage: 'IFSC Code is required.' },
+        { selector: 'input[placeholder="Bank Branch Name"]', errorMessage: 'Bank Branch Name is required.' },
+        { selector: 'select[id="dept"]', errorMessage: 'Department is required.' },
+        { selector: 'select[id="hQuali"]', errorMessage: 'Highest Qualification is required.' },
+        { selector: 'select[id="NatAppo"]', errorMessage: 'Nature of Appointment is required.' },
+        { selector: 'input[placeholder="Date of Joining"]', errorMessage: 'Date of Joining is required.' },
+        { selector: 'input[placeholder="PASSWORD"]', errorMessage: 'Password is required.' },
+        { selector: 'select[id="exp"]', errorMessage: 'Select Experience.' }
+    ];
+
+    requiredFields.forEach(field => {
+        const input = document.querySelector(field.selector);
+        if (!input.value.trim()) {
+            isValid = false; 
+            input.classList.add('error');
+            
+            // Display error message below the field
+            const errorSpan = document.createElement('span');
+            errorSpan.className = 'error-text';
+            errorSpan.textContent = field.errorMessage;
+            input.insertAdjacentElement('afterend', errorSpan);
+        } else {
+            input.classList.remove('error');
+        }
+
+        // Clear error on input
+        input.addEventListener('input', () => {
+            input.classList.remove('error');
+            const nextSibling = input.nextElementSibling;
+            if (nextSibling && nextSibling.classList.contains('error-text')) {
+                nextSibling.remove();
+            }
+        });
+
+        // Display error when field loses focus if still invalid
+        input.addEventListener('blur', () => {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                if (!input.nextElementSibling || !input.nextElementSibling.classList.contains('error-text')) {
+                    const errorSpan = document.createElement('span');
+                    errorSpan.className = 'error-text';
+                    errorSpan.textContent = field.errorMessage;
+                    input.insertAdjacentElement('afterend', errorSpan);
+                }
+            }
+        });
+    });
+
+    if (!isValid) {
+        event.preventDefault(); // Prevent form submission if validation fails
+    }
+});
+
+    </script>
+</body>
+</html>
